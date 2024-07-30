@@ -1,0 +1,37 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://jawahrecmsweb.just4share.com/en');
+  await page.getByRole('link', { name: 'Login' }).click();
+  await page.getByPlaceholder('XXXXXXXX').click();
+  await page.getByPlaceholder('XXXXXXXX').fill('0502010110');
+  await page.getByPlaceholder('XXXXXXXX').press('Enter');
+  await page.getByPlaceholder('ــ ــ ــ ــ').click();
+  await page.getByPlaceholder('ــ ــ ــ ــ').fill('1234');
+  await page.getByRole('button', { name: 'Confirm mobile number' }).click();
+  await page.getByRole('textbox', { name: 'Province' }).click();
+  await page.getByRole('option', { name: 'Eastern Province' }).click();
+  await page.getByRole('textbox', { name: 'Choose city' }).click();
+  await page.getByRole('option', { name: 'Dammam' }).click();
+  await page.getByRole('textbox', { name: 'Choose' }).click();
+  await page.getByLabel('Search').click();
+  await page.getByLabel('Search').fill('ad dabab');
+  await page.getByRole('option', { name: 'Ad Dabab' }).click();
+  await page.locator('#products-categories-mureeh').getByRole('button', { name: 'Book Now' }).click();
+  await page.waitForTimeout(3000);
+  await page.getByRole('textbox', { name: 'Ad Dabab' }).click();
+  await page.getByLabel('Search').click();
+  await page.getByLabel('Search').fill('ad dabab');
+  await page.getByRole('option', { name: 'Ad Dabab' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.getByRole('textbox', { name: 'Africa' }).click();
+  await page.getByRole('option', { name: 'Philippines' }).click();
+  await page.getByText('Half Day AM').click();
+  await page.getByText('from 09:00 to 13:').click();
+  await page.waitForTimeout(3000);
+  await page.locator('label').filter({ hasText: 'Single visit/s' }).click();
+  await page.getByRole('link', { name: '31' }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.locator('#terms_and_conditions').check();
+  await page.locator('form').filter({ hasText: 'Pay now' }).click();
+});
